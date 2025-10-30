@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <script src="{% static 'home/transitions.js' %}"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+</head>
+<body>
+    <div id="transition-overlay">
+        <div id="backGif">
+            <h1>Welcome to His Site</h1>
+            <p>This is a test</p>
+        </div>
+        <div id="hotbar">
+            <audio id="hoverSound" src="{% static 'home/sound/hover.wav' %}" preload="auto"></audio>
+            <audio id="selectSound" src="{% static 'home/sound/select.wav' %}" preload="auto"></audio>
+            <a href="/" class="hotbarButton" title="home"><div id="homeButton"></div></a>
+            <a href="/about" class="hotbarButton" title="about"><div id="aboutButton"></div></a>
+            <a href="/projects" class="hotbarButton" title="projects"><div id="projectButton"></div></a>
+            <a href="/links" class="hotbarButton" title="links"><div id="linkButton"></div></a>
+        </div>
+    </div>
+</body>
+</html>

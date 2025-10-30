@@ -1,0 +1,134 @@
+@font-face {
+    font-family: "HisFontLarge";
+    src: url(../fonts/DTM-Mono.otf) format("woff");
+
+}
+
+@font-face {
+    font-family: "HisFontSmall";
+    src: url(../fonts/DTM-Sans.otf) format("woff");
+
+}
+
+body {
+    background-color: black; 
+}
+
+#backGif {
+    position: fixed;
+    top: 0;
+    right: 2.5%;
+    width: 95%;
+    height: 100%;
+    background: black url("videos/UTDR_BG.gif") center;
+    opacity: 0;
+    transition: opacity 1s ease-out;
+}
+
+#backGif.loaded {
+    opacity: 1;
+}
+
+#hotbar {
+    position: fixed;
+    bottom: -15vh;
+    left: 0;
+    width: 100vw;
+    height: 12vh;
+    background-color: black;
+    opacity: 0.85;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+
+    transition: bottom 0.7s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#hotbar.moved {
+    bottom: 0;
+}
+
+/* Button Styles */
+#homeButton {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 93px;
+    width: 78px;
+    background-image: url("images/home.svg");
+}
+#homeButton:hover {
+    background-repeat: no-repeat;
+    height: 93px;
+    width: 78px;
+    background-image: url("images/homeSelected.svg");
+}
+
+#aboutButton {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 93px;
+    width: 78px;
+    background-image: url("images/about.svg");
+}
+
+#aboutButton:hover {
+    background-repeat: no-repeat;
+    height: 93px;
+    width: 78px;
+    background-image: url("images/aboutSelected.svg");
+}
+
+#projectButton {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 93px;
+    width: 78px;
+    background-image: url("images/project.svg");
+}
+
+#projectButton:hover {
+    background-repeat: no-repeat;
+    height: 93px;
+    width: 78px;
+    background-image: url("images/projectSelected.svg");
+}
+
+#linkButton {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 93px;
+    width: 78px;
+    background-image: url("images/link.svg");
+}
+
+#linkButton:hover {
+    background-repeat: no-repeat;
+    height: 93px;
+    width: 78px;
+    background-image: url("images/linkSelected.svg");
+}
+
+#textbox
+{
+    position: relative;
+    top: 15vh;
+    width: 60%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+h1 {
+    font-family: "HisFontLarge";
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+p {
+    font-family: "HisFontSmall";
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
