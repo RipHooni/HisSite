@@ -1,17 +1,38 @@
 from django.shortcuts import render
 
-# Create your views here.
 def index(request):
-    return render(request, "index.html")
+    """Serves the full page"""
+    return render(request, 'index.html', {'initial_content': 'home'})
+
+def home(request):
+    """If accessed directly, serve full page. Otherwise just content."""
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or 'HX-Request' in request.headers:
+        # AJAX request - return just content
+        return render(request, 'index.html')
+    else:
+        # Direct access - return full page with about content
+        return render(request, 'index.html', {'initial_content': 'index'})
 
 def about(request):
-    return render(request, "about.html")
+    """If accessed directly, serve full page. Otherwise just content."""
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or 'HX-Request' in request.headers:
+        # AJAX request - return just content
+        return render(request, 'about.html')
+    else:
+        # Direct access - return full page with about content
+        return render(request, 'index.html', {'initial_content': 'about'})
 
 def projects(request):
-    return render(request, "projects.html")
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or 'HX-Request' in request.headers:
+        return render(request, 'projects.html')
+    else:
+        return render(request, 'index.html', {'initial_content': 'projects'})
 
 def links(request):
-    return render(request, "links.html")
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or 'HX-Request' in request.headers:
+        return render(request, 'links.html')
+    else:
+        return render(request, 'index.html', {'initial_content': 'links'})
 
 # def sendMessage(request):
     # return HttpResponse("Send Him a message")
