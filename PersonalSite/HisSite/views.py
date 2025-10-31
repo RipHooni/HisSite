@@ -1,41 +1,37 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 def index(request):
-    """Serves the full page"""
+    """Redirects to the home page"""
+    return redirect('home')
+
+def home_page(request):
+    """Full page with home content"""
     return render(request, 'index.html', {'initial_content': 'home'})
 
-def home(request):
-    """If accessed directly, serve full page. Otherwise just content."""
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or 'HX-Request' in request.headers:
-        # AJAX request - return just content
-        return render(request, 'index.html')
-    else:
-        # Direct access - return full page with about content
-        return render(request, 'index.html', {'initial_content': 'index'})
+def about_page(request):
+    """Full page with about content"""
+    return render(request, 'index.html', {'initial_content': 'about'})
 
-def about(request):
-    """If accessed directly, serve full page. Otherwise just content."""
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or 'HX-Request' in request.headers:
-        # AJAX request - return just content
-        return render(request, 'about.html')
-    else:
-        # Direct access - return full page with about content
-        return render(request, 'index.html', {'initial_content': 'about'})
+def projects_page(request):
+    """Full page with projects content"""
+    return render(request, 'index.html', {'initial_content': 'projects'})
 
-def projects(request):
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or 'HX-Request' in request.headers:
-        return render(request, 'projects.html')
-    else:
-        return render(request, 'index.html', {'initial_content': 'projects'})
+def links_page(request):
+    """Full page with links content"""
+    return render(request, 'index.html', {'initial_content': 'links'})
 
-def links(request):
-    if request.headers.get('X-Requested-With') == 'XMLHttpRequest' or 'HX-Request' in request.headers:
-        return render(request, 'links.html')
-    else:
-        return render(request, 'index.html', {'initial_content': 'links'})
+def home_content(request):
+    """Just the home content HTML"""
+    return render(request, 'home.html')
 
-# def sendMessage(request):
-    # return HttpResponse("Send Him a message")
+def about_content(request):
+    """Just the about content HTML"""
+    return render(request, 'about.html')
 
-# def viewMessage(request):
-    # return HttpResponse("View His messages")
+def projects_content(request):
+    """Just the projects content HTML"""
+    return render(request, 'projects.html')
+
+def links_content(request):
+    """Just the links content HTML"""
+    return render(request, 'links.html')

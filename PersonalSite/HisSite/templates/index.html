@@ -3,19 +3,19 @@
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'home/style.css' %}">
+    <script src="{% static 'home/transitions.js' %}" defer></script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-
+    <link rel="icon" href="/static/home/images/favicon.svg" type="image/svg+xml">
+    <title>index</title>
+    
 </head>
 <body>
     <div id="transition-overlay">
         <div id="contentLoader">
             <div id="content">
-                {% if initial_content == 'home' %}
-                    {% include 'home.html' %}
-                {% elif initial_content == 'about' %}
+                {% if initial_content == 'about' %}
                     {% include 'about.html' %}
                 {% elif initial_content == 'projects' %}
                     {% include 'projects.html' %}
@@ -33,16 +33,18 @@
         <p>This is a test</p> -->
     </div>
 
+    <div id="muteButton"></div>
+
     <div id="hotbar">
-        <audio id="hoverSound" src="{% static 'home/sound/hover.wav' %}" preload="auto"></audio>
-        <audio id="selectSound" src="{% static 'home/sound/select.wav' %}" preload="auto"></audio>
+        <!-- <audio id="hoverSound" src="{% static 'home/sound/hover.wav' %}" preload="auto"></audio> -->
+        <!-- <audio id="selectSound" src="{% static 'home/sound/select.wav' %}" preload="auto"></audio> -->
+        <audio loop muted id="backMusic" src="{% static 'home/sound/neverEndingNight.mp3' %}"></audio>
         
-        <a id="homeButton" class="hotbarButton" href="{% url 'index' %}" data-page="home"></a>
+        <a id="homeButton" class="hotbarButton" href="{% url 'home' %}" data-page="home"></a>
         <a id="aboutButton" class="hotbarButton" href="{% url 'about' %}" data-page="about"></a>
         <a id="projectsButton" class="hotbarButton" href="{% url 'projects' %}" data-page="projects"></a>
         <a id="linksButton" class="hotbarButton" href="{% url 'links' %}" data-page="links"></a>
+        
     </div>
-
-    <script src="{% static 'home/transitions.js' %}"></script>
 </body>
 </html>
