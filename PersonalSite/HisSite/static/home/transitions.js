@@ -32,18 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // useless for now
-    function attachTypewriterListener() {
-        homeDialogue.addEventListener('mouseover', () => {
-            if (!talking) {
-                typeWriter();
-            }
-        });
-    }
-
     // initialize dialogue on page load
-    function initializeDialogue() {
-        // attachTypewriterListener();
+    function initializeDialogue() {;
         const homeDialogue = document.getElementById('homeDialogue');
         if (homeDialogue) {
             i = 0;

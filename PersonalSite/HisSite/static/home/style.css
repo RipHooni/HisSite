@@ -290,17 +290,58 @@ p {
     align-items: start;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url("images/linksINV.svg");
+    background-image: url("images/aboutINV.svg");
+    gap: 5%;
     padding: 2%;
 }
-#aboutRow {
-    width: 100%;
+#aboutItems {
+    box-sizing: border-box;
+    position: relative;
+    width: 23%;
+    height: 88%;
+    max-height: 88%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
+    overflow-y: auto;
+    gap: 5%;
 }
+#aboutItems::-webkit-scrollbar {
+    display: none;
+}
+#aboutDescription {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 88%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    overflow-y: auto;
+}
+#aboutRight::-webkit-scrollbar {
+    display: none;
+}
+button.aboutItem {
+    background: none;
+    border: none;
+    font-family: "HisFontLarge";
+    font-size: x-large;
+    color: white;
+    text-align: center;
+    z-index: 999;
+}
+button.aboutItem:hover {
+    color: #ffff00;
+}
+p.about {
+    font-family: "HisFontLarge";
+    font-size: medium;
+    color: white;
+    text-align: center;
+    padding: 1px;
+}
+
 
 /* projects page */
 #projectsContainer {
@@ -321,7 +362,7 @@ p {
     align-items: start;
     background-repeat: no-repeat;
     background-size: contain;
-    background-image: url("images/linksINV.svg");
+    background-image: url("images/projINV.svg");
     padding: 2%;
 }
 #projectsLeft {
@@ -381,7 +422,7 @@ p.projects {
     background-image: url("images/linksINV.svg");
     padding: 2%;
 }
-#linksLeft {
+#linksItems {
     box-sizing: border-box;
     position: relative;
     width: 21%;
@@ -391,11 +432,30 @@ p.projects {
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    gap: 7%;
 }
-#linksLeft::-webkit-scrollbar {
+#linksItems::-webkit-scrollbar {
     display: none;
 }
-#linksRight {
+button.linkItem {
+    background: none;
+    border: none;
+    font-family: "HisFontLarge";
+    font-size: x-large;
+    color: white;
+    text-align: center;
+    z-index: 999;
+}
+button.linkItem:hover {
+    color: #ffff00;
+}
+p.links {
+    font-family: "HisFontLarge";
+    font-size: x-large;
+    color: white;
+    text-align: center;
+}
+#linksDescription {
     position: relative;
     width: 100%;
     height: 100%;
@@ -407,10 +467,4 @@ p.projects {
 }
 #linksRight::-webkit-scrollbar {
     display: none;
-}
-p.links {
-    font-family: "HisFontSmall";
-    font-size: x-large;
-    color: white;
-    text-align: center;
 }
