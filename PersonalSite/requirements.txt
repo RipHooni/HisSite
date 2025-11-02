@@ -1,4 +1,8 @@
 asgiref==3.10.0
+click==8.3.0
+colorama==0.4.6
 Django==5.2.7
+h11==0.16.0
 sqlparse==0.5.3
 tzdata==2025.2
+uvicorn==0.38.0

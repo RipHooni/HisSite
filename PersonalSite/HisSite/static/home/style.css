@@ -205,6 +205,26 @@ body {
     background-image: url("images/linkSelected.svg");
 }
 
+#resumeButton {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+    max-height: 93px;
+    max-width: 78px;
+    
+    background-image: url("images/resume.svg");
+}
+#resumeButton:hover {
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 100%;
+    width: 100%;
+    max-height: 93px;
+    max-width: 78px;
+    background-image: url("images/resumeSelected.svg");
+}
+
 #textbox
 {
     position: relative;
@@ -239,10 +259,10 @@ p {
     align-items: center;
 }
 #homeDialogue {
-    position: static;
+    position: absolute;
     box-sizing: border-box;
     display: flex;
-    top: 1vh;
+    bottom: 25%;
     width: 100%;               
     height: 100%;   
     max-width: 650px;
@@ -252,8 +272,9 @@ p {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-image: url("dialogue/HisText.svg");
-    padding-left: 1%;
-    padding-right: 1%;
+    padding-top: .5%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
     opacity: 0;
 }
 #homeDialogue.appear {
@@ -262,7 +283,7 @@ p {
 #hisDialogue {
     box-sizing: border-box;
     font-family: "HisFontLarge";
-    font-size: large;
+    font-size: larger;
     color: white;
     text-align: left;
 
@@ -292,7 +313,9 @@ p {
     background-size: contain;
     background-image: url("images/aboutINV.svg");
     gap: 5%;
-    padding: 2%;
+    padding-top: 1%;
+    padding-right: 2%;
+    padding-left: 2%;
 }
 #aboutItems {
     box-sizing: border-box;
@@ -305,21 +328,9 @@ p {
     align-items: center;
     overflow-y: auto;
     gap: 5%;
+    padding-top: 1%;
 }
 #aboutItems::-webkit-scrollbar {
-    display: none;
-}
-#aboutDescription {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    max-height: 88%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    overflow-y: auto;
-}
-#aboutRight::-webkit-scrollbar {
     display: none;
 }
 button.aboutItem {
@@ -333,6 +344,26 @@ button.aboutItem {
 }
 button.aboutItem:hover {
     color: #ffff00;
+}
+#aboutDescription {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-height: 88%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    overflow-y: auto;
+}
+p.descriptionText {
+    font-family: "HisFontSmall";
+    font-size: x-large;
+    color: white;
+    text-align: left;
+    line-height: 1.5;
+}
+#aboutDescription::-webkit-scrollbar {
+    display: none;
 }
 p.about {
     font-family: "HisFontLarge";
@@ -352,6 +383,9 @@ p.about {
     flex-direction: column;
     align-items: center;
 }
+#projectsContainer::-webkit-scrollbar {
+    display: none;
+}
 #projectsInventory {
     display: flex;
     width: 70%;
@@ -363,42 +397,73 @@ p.about {
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url("images/projINV.svg");
-    padding: 2%;
+    gap: 5%;
+    padding-top: 1%;
+    padding-right: 2%;
+    padding-left: 2%;
+    
 }
-#projectsLeft {
+#projectItems {
     box-sizing: border-box;
     position: relative;
-    width: 21%;
+    width: 26%;
     height: 88%;
     max-height: 88%;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
+    gap: 7%;
+    padding-top: 2%;
 }
-#projectsLeft::-webkit-scrollbar {
+#projectItems::-webkit-scrollbar {
     display: none;
 }
-#projectsRight {
+button.projectItem {
+    background: none;
+    border: none;
+    font-family: "HisFontLarge";
+    font-size: x-large;
+    color: white;
+    text-align: center;
+    z-index: 999;
+}
+button.projectItem:hover {
+    color: #ffff00;
+}
+#projectDescription {
     position: relative;
     width: 100%;
     height: 100%;
     max-height: 88%;
-    display: flex;
+    display: flexbox;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     overflow-y: auto;
+    padding-top: -1%;
+    gap: 0.5%;
 }
-#projectsRight::-webkit-scrollbar {
+#projectDescription::-webkit-scrollbar {
     display: none;
 }
-p.projects {
+p.projectTitle {
     font-family: "HisFontSmall";
-    font-size: medium;
+    font-size: xx-large;
     color: white;
-    text-align: center;
-    padding: 1px;
+    text-align: left;
+    line-height: 1.5;
+    word-spacing: 0.1em;
+    cursor: default;
 }
+p.projectText {
+    font-family: "HisFontLarge";
+    font-size: larger;
+    color: white;
+    text-align: left;
+    line-height: 1.5;
+    word-spacing: 0.1em;
+}
+
 
 /* links page */
 #linksContainer {
@@ -410,45 +475,51 @@ p.projects {
     align-items: center;
 }
 #linksInventory {
-    display: flex;
+    display: grid;
     width: 70%;
     height: 70%;
     max-width: 1385px;
     max-height: 655px;
-    flex-direction: row;
+    grid-template-columns: repeat(auto-fill, minmax(1%, 20%));
+    grid-template-rows: repeat(auto-fill, minmax(1%, 20%));
     align-items: start;
     background-repeat: no-repeat;
     background-size: contain;
     background-image: url("images/linksINV.svg");
-    padding: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    overflow-y: hidden;
 }
 #linksItems {
     box-sizing: border-box;
     position: relative;
-    width: 21%;
-    height: 88%;
-    max-height: 88%;
+    width: auto;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-y: auto;
-    gap: 7%;
+    gap: 1%;
 }
-#linksItems::-webkit-scrollbar {
+#linksInventory::-webkit-scrollbar {
     display: none;
 }
 button.linkItem {
     background: none;
     border: none;
     font-family: "HisFontLarge";
-    font-size: x-large;
+    font-size: xx-large;
     color: white;
     text-align: center;
     z-index: 999;
+    transition: transform 0.3s ease;
 }
 button.linkItem:hover {
     color: #ffff00;
+    transform: scale(1.2);
 }
+
 p.links {
     font-family: "HisFontLarge";
     font-size: x-large;
@@ -467,4 +538,44 @@ p.links {
 }
 #linksRight::-webkit-scrollbar {
     display: none;
+}
+
+h1.title {
+    font-family: "HisFontLarge";
+    color: white;
+    text-align: center;
+    padding: 1px;
+    animation: pulse 1.5s infinite;
+}
+
+.notWorking {
+    animation: shake 480ms cubic-bezier(.36,.07,.19,.97);
+}
+
+.notWorkingText {
+    animation: shakeText 480ms cubic-bezier(.36,.07,.19,.97);
+}
+
+@keyframes shakeText {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: rotate(-0.25deg) scale(1.0002);
+    }
+    20%, 40%, 60%, 80% {
+        transform: rotate(0.25deg) scale(1.0002);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: rotate(-3deg) scale(1.02);
+    }
+    20%, 40%, 60%, 80% {
+        transform: rotate(3deg) scale(1.02);
+    }
 }
